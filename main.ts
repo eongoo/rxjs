@@ -24,6 +24,10 @@ function load(url: string) {
   }).retryWhen(retryStrategy({attemps: 3, delay: 1500}));
 }
 
+function loadWithFetch(url: string) {
+
+}
+
 function retryStrategy({attemps = 4, delay = 1000}) {
   return function(errors) {
     return errors
@@ -35,6 +39,7 @@ function retryStrategy({attemps = 4, delay = 1000}) {
               .delay(delay);
   }
 }
+
 function renderMovies(movies) {
     movies.forEach(m => {
       let div = document.createElement('div');
